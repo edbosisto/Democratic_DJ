@@ -5,17 +5,17 @@ import JoinRoomPage from "./JoinRoomPage";
 import CreateRoomPage from "./CreateRoomPage";
 
 export default class App extends Component {
-    constructor(props) {
-        super(props);
-    }
+  constructor(props) {
+    super(props);
+  }
 
-    render() {
-        return (
-            <div className="center">
-                <HomePage />
-            </div>
-        );
-    }
+  render() {
+    return (
+      <div className="center">
+        <HomePage />
+      </div>
+    );
+  }
 }
 
 const appDiv = document.getElementById("app");

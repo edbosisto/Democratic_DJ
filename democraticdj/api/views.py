@@ -74,10 +74,14 @@ class CreateRoomView(APIView):
                 room.guest_pause = guest_pause
                 room.votes_to_skip = votes_to_skip
                 room.save(update_fields=['guest_pause', 'votes_to_skip'])
+                # Save backend session data so user is remembered as host of room if they leave and return
+                self.request.session['room_code'] = room.code
                 return Response(RoomSerializer(room).data, status=status.HTTP_200_OK)
             else:
                 room = Room(host=host, guest_pause=guest_pause, votes_to_skip=votes_to_skip)
                 room.save()
+                # Save backend session data so user is remembered as host of room if they leave and return
+                self.request.session['room_code'] = room.code
                 return Response(RoomSerializer(room).data, status=status.HTTP_201_CREATED)
         
         return Response({'Bad Request': 'Invalid data...'}, status=status.HTTP_400_BAD_REQUEST)
