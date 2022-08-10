@@ -10,6 +10,8 @@ import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup"
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 
+
+// A page to create a room, a choose the paramaters for the room. url is /create
 export default class CreateRoomPage extends Component {
     defaultVotes = 2;
 
@@ -48,7 +50,7 @@ export default class CreateRoomPage extends Component {
             };
             fetch('/api/create-room', requestOptions)
                 .then((response) => response.json())
-                .then((data) => console.log(data)
+                .then((data) => this.props.history.push('/room/' + data.code)
             );
         }
 
