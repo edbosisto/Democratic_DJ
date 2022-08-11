@@ -14,11 +14,21 @@ import {
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
+    this.setState = {
+      roomCode: null,
+    };
   }
 
-  //lifecycle methods - hook in to alter component
+  // lifecycle methods - hook in to alter component
+  // async means app doesn't need to wait for this method before starting.
   async componentDidMount() {
-    
+    fetch("/api/user-in-room")
+    .then((response) => response.json())
+    .then((data) => {
+      this.setState({
+        roomCode: data.code
+      });
+    });
   }
 
   renderHomePage() {
