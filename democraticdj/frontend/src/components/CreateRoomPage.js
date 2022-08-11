@@ -12,7 +12,7 @@ import {
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
 
-// A page to create a room, a choose the paramaters for the room. url is /create
+// A page to create a room, and choose the paramaters for the room. url is /create
 export default class CreateRoomPage extends Component {
   defaultVotes = 2;
 
