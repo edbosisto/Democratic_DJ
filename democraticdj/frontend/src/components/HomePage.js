@@ -14,7 +14,7 @@ import {
 export default class HomePage extends Component {
   constructor(props) {
     super(props);
-    this.setState = {
+    this.state = {
       roomCode: null,
     };
   }
@@ -26,7 +26,7 @@ export default class HomePage extends Component {
     .then((response) => response.json())
     .then((data) => {
       this.setState({
-        roomCode: data.code
+        roomCode: data.code,
       });
     });
   }
@@ -57,9 +57,19 @@ export default class HomePage extends Component {
     return (
       <Router>
         <Switch>
-          <Route exact path="/">
-            { this.renderHomePage }
-          </Route>
+          {/* If we have a room code, the redirect component will 
+          redirect to the existing room according to roomcode
+          Otherwise simply render the HomePage */}
+          <Route 
+            exact path="/" 
+            render={() => {
+              return this.state.roomCode ? (
+                <Redirect to={`/room/${this.state.roomCode}`} />
+              ) : (
+                this.renderHomePage()
+              );
+            }} 
+          />
           <Route path="/join" component={JoinRoomPage} />
           <Route path="/create" component={CreateRoomPage} />
           <Route path="/room/:roomCode" component={Room} />
