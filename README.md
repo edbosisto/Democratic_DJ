@@ -1,7 +1,8 @@
 # Democratic_DJ
 
-Sick of those militant DJs who won't listen to their audience!? Try Democratic DJ. Join or host a room, then play music through Spotify. Listeners who join rooms can vote to skip or pause songs.
+### Web App which allows people to create rooms and stream spotify music from the room. Others can join the room and vote to skip and pause the current song.
 
-- A web app created using Django and NodeJs
-- The app allows users to create 'rooms' and play music over Spotify. Others can join this room and vote to skip songs or simply listen along.
-- This app was created with inspiration from a tutorial on YouTube by Techwithtim
+- Backend with Django
+- Frontend with ReactJs
+- App created as a learning exercise to improve Django and React skills
+- Inspiration from a tutorial on YouTube by Techwithtim
